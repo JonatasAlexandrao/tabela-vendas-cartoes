@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import NewRow from './objects/NewRow';
+import NewHeader from './objects/NewHeader';
 
 function App() {
 
@@ -11,40 +12,35 @@ function App() {
   //   ['300,00', '220,00', 'Master', '05', '40,00', '44,00'],
   //   ['400,00', '220,00', 'Master', '05', '40,00', '44,00']
   // ]
-
+  let key=0;
   
   const tabela = [
-    {ValorLiquido:'100,00', ValorBruto:'220,00', Cartao:'Master', Parcelas:'05', ParcLiquida:'40,00',ParcBruta:'44,00'},
-    {ValorLiquido:'200,00', ValorBruto:'220,00', Cartao:'Master', Parcelas:'10', ParcLiquida:'40,00',ParcBruta:'44,00'},
-    {ValorLiquido:'300,00', ValorBruto:'220,00', Cartao:'Master', Parcelas:'03', ParcLiquida:'40,00',ParcBruta:'44,00'},
-    {ValorLiquido:'400,00', ValorBruto:'220,00', Cartao:'Master', Parcelas:'02', ParcLiquida:'40,00',ParcBruta:'44,00'}
+    {DataVenda:'01/07/2020', Parcelas:'01', Bandeira:'Master', ValorBruto:'110,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
+    {DataVenda:'02/07/2020', Parcelas:'5', Bandeira:'Master', ValorBruto:'220,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
+    {DataVenda:'03/07/2020', Parcelas:'02', Bandeira:'Master', ValorBruto:'330,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
+    {DataVenda:'04/07/2020', Parcelas:'10', Bandeira:'Master', ValorBruto:'440,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'}
   ]
 
   return (
     <div className="App">
       <header className="App-header">
       </header>
+
       <table className='tabela-vendas'>
-        
-        <thead>
-          <tr className='linha-tabela'>
-            <td className='coluna-cabecalho'>Valor Líquido</td>
-            <td className='coluna-cabecalho'>Valor Bruto</td>
-            <td className='coluna-cabecalho'>Cartão</td>
-            <td className='coluna-cabecalho'>Parcelas</td>
-            <td className='coluna-cabecalho'>Parc. Líquida</td>
-            <td className='coluna-cabecalho'>Parc. Bruto</td>
-            
-          </tr>
-        </thead>
-        
+
+        <NewHeader />   
+          
         <tbody>
 
-          {tabela.map((novaLinha) => {return <NewRow novaLinha={novaLinha}/>})}
+          {tabela.map((novaLinha) => {
+            
+            key++
+            
+            return <NewRow novaLinha={novaLinha} key={key}/>
+            }
+          )}
 
-        </tbody>
-        
-        
+        </tbody>     
       </table>
 
 
