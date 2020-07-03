@@ -1,0 +1,32 @@
+.tabela-vendas {
+    
+}
+  
+
+.tabela-vendas .coluna-cabecalho,
+.tabela-vendas .coluna-tabela {
+width: 120px;
+height: 50px;
+
+text-align: center;
+vertical-align: middle;
+border-top: 2px solid #000;
+border-bottom: 2px solid #000;
+
+}
+
+.tabela-vendas .coluna-tabela {
+background-color: rgb(53, 127, 196); 
+}
+.tabela-vendas .coluna-tabela.-min {
+width: 50px; 
+}
+.tabela-vendas .coluna-tabela.-min:hover {
+background-color: rgb(25, 82, 136);
+cursor: pointer;
+}
+
+.tabela-vendas .coluna-cabecalho {
+background-color: crimson;
+font-weight: bold;
+}
