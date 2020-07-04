@@ -13,12 +13,12 @@ function App() {
   //   ['400,00', '220,00', 'Master', '05', '40,00', '44,00']
   // ]
   let key=0;
-  
+    
   const tabela = [
-    {DataVenda:'01/07/2020', Parcelas:'01', Bandeira:'Master', ValorBruto:'110,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
-    {DataVenda:'02/07/2020', Parcelas:'5', Bandeira:'Master', ValorBruto:'220,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
-    {DataVenda:'03/07/2020', Parcelas:'02', Bandeira:'Master', ValorBruto:'330,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
-    {DataVenda:'04/07/2020', Parcelas:'10', Bandeira:'Master', ValorBruto:'440,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'}
+    {DataVenda:'01/07/2020', Parcelas:'5', Bandeira:'Master', ValorBruto:'110,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
+    {DataVenda:'02/07/2020', Parcelas:'10', Bandeira:'Master', ValorBruto:'220,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
+    {DataVenda:'03/07/2020', Parcelas:'1', Bandeira:'Master', ValorBruto:'330,00', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'},
+    {DataVenda:'04/07/2020', Parcelas:'3', Bandeira:'Master', ValorBruto:'440,44', ValorLiquido:'100,00', ParcBruta:'44,00', ParcLiquida:'40,00'}
   ]
 
   return (

@@ -5,7 +5,6 @@ import TabelaParcelas from '../../components/TabelaParcelas';
 let key = 0
 const NewRow = ({novaLinha}) => {
     key++
-    console.log(key)
     return (
         <>
             <tr className='linha-tabela'>
@@ -24,6 +23,5 @@ const NewRow = ({novaLinha}) => {
     );
 
 }
-
 
 export default NewRow;
