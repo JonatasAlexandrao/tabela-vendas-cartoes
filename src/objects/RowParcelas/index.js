@@ -23,26 +23,6 @@ const RowParcelas = ({dataParc, numParcelas, bandeira, parcBruto, parcLiquido}) 
   );
 }
 
-// const numParcelas = ({novaLinha, parc}) => {
-//   return `${parc}/${novaLinha.Parcelas}`;
-// }
-
-const parcelaBruto = ({novaLinha, parc}) => {
-
-  const valorBruto = novaLinha.ValorBruto.replace(",",".");
-
-  const valorParc = valorBruto / parc;
-
-  return valorParc.toFixed(2)
-
-  //console.log(valorParc.toFixed(2))
-  //console.log(parseFloat(novaLinha.ValorBruto))
-  //console.log(novaLinha.ValorBruto.replace(",","."))
-  //console.log(parc)
-
-
-}
-
 export default RowParcelas;
 
 

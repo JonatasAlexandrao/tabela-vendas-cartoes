@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import RowParcelas from '../../objects/RowParcelas';
 
 const TabelaParcelas = ({novaLinha}) => {
@@ -6,8 +7,6 @@ const TabelaParcelas = ({novaLinha}) => {
     let i = 1;
     let linhaParcela = [];
 
-    
-    
     while (i <= novaLinha.Parcelas) {
 
         linhaParcela.push([
@@ -33,13 +32,18 @@ const TabelaParcelas = ({novaLinha}) => {
 }
 
 const dataParc = (i, data) => {
-    const dia = data.substring(0,2);
-    const mes = parseInt(data.substring(3,5))+i-1;
-    const ano = data.substring(6,10);
-    const novaData = `${dia}/${mes}/${ano}`
+    // muda a data BR para o formato americano e converte para Date
+    const split = data.split('/');
+    const dataAmericana = split[1] + "/" +split[0]+ "/" +split[2];
+    const formatoDate = new Date(dataAmericana);
 
-    return novaData;
+    // soma +1 em cada mes e formata a data para BR
+    const dataFutura = moment(formatoDate).add(i, "months").format("DD/MM/YYYY");
+
+    return dataFutura;
 }
+
+
 
 const parcAtual = (Atual, parcelas) => {
     return `${Atual}/${parcelas}`;
