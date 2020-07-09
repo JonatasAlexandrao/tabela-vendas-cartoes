@@ -6,11 +6,12 @@ import TabelaParcelas from '../../components/TabelaParcelas';
 let key = 0
 const NewRow = ({novaLinha}) => {
     key++
+    const numParcelas = isNumber(novaLinha.Parcelas)
     return (
         <>
             <tr className='linha-tabela'>
                 <td className='coluna-tabela'>{formataData(novaLinha.DataVenda)}</td>
-                <td className='coluna-tabela'>{novaLinha.Parcelas}</td>
+                <td className='coluna-tabela'>{numParcelas}</td>
                 <td className='coluna-tabela'>{novaLinha.Bandeira}</td>
 
                 <td className='coluna-tabela'>{novaLinha.ValorBruto}</td>
@@ -18,12 +19,18 @@ const NewRow = ({novaLinha}) => {
                 
                 <td className='coluna-tabela -min'>▼</td>
             </tr>
-            <TabelaParcelas novaLinha={novaLinha} key={key}/>
+            <TabelaParcelas novaLinha={novaLinha} parcelas={numParcelas}key={key}/>
             {/* <TabelaParc /> */}
         </>
     );
 
 }
+
+const isNumber = (numParcelas) => {
+    const parcelas = numParcelas.replace(/[^\d]+/g,'')
+    return parcelas
+}
+
 
 const formataData = (dataString) => {
     const split = dataString.split('/');

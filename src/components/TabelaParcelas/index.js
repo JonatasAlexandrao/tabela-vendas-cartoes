@@ -2,27 +2,29 @@ import React from 'react';
 import moment from 'moment';
 import RowParcelas from '../../objects/RowParcelas';
 
-const TabelaParcelas = ({novaLinha}) => {
+const TabelaParcelas = ({novaLinha, parcelas}) => {
 
     let i = 1;
     let linhaParcela = [];
+    //console.log(parcelas)
 
-    while (i <= novaLinha.Parcelas) {
+    while (i <= parcelas) {
 
+        //console.log(novaLinha.Parcelas)
         linhaParcela.push([
             <RowParcelas 
                 dataParc={dataParc(i, novaLinha.DataVenda)}
-                numParcelas={parcAtual(i, novaLinha.Parcelas)}          
+                numParcelas={parcAtual(i, parcelas)}          
                 key={i}
                 bandeira={novaLinha.Bandeira}
-                parcBruto={parcBruto(novaLinha.ValorBruto, novaLinha.Parcelas)}
-                parcLiquido={parcLiquido(novaLinha.ValorLiquido, novaLinha.Parcelas)}
+                parcBruto={parcBruto(novaLinha.ValorBruto, parcelas)}
+                parcLiquido={parcLiquido(novaLinha.ValorLiquido, parcelas)}
             />
 
         ])
         i++;              
     }
-
+    
     return (
         <>
         {linhaParcela}
@@ -42,7 +44,6 @@ const dataParc = (i, data) => {
 
     return dataFutura;
 }
-
 
 
 const parcAtual = (Atual, parcelas) => {

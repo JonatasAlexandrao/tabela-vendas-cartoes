@@ -9,6 +9,7 @@ const RowParcelas = ({dataParc, numParcelas, bandeira, parcBruto, parcLiquido}) 
   //console.log(parcelaBruto({novaLinha, parc}))
   //console.log(dataParc)
   
+  
 
   return (
     <tr className='linha-tabela rowParcela -disabled'>
@@ -22,6 +23,8 @@ const RowParcelas = ({dataParc, numParcelas, bandeira, parcBruto, parcLiquido}) 
     </tr>
   );
 }
+
+
 
 export default RowParcelas;
 
