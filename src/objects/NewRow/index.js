@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 import moment from 'moment';
 import TabelaParcelas from '../../components/TabelaParcelas';
 
 let key = 0
+
+
+/*const handleClick = () => {
+    if(addClass === '')
+        console.log('entrou no if')
+}*/
+
+
 const NewRow = ({novaLinha}) => {
+
+    const [addClass, setAddClass] = useState('')
+
+    const handleClick = () => { addClass === '' ? setAddClass('-minimiza') : setAddClass('') }
+
+
     key++
     const numParcelas = isNumber(novaLinha.Parcelas)
     return (
@@ -17,9 +31,9 @@ const NewRow = ({novaLinha}) => {
                 <td className='coluna-tabela'>{novaLinha.ValorBruto}</td>
                 <td className='coluna-tabela'>{novaLinha.ValorLiquido}</td>
                 
-                <td className='coluna-tabela -min'>▼</td>
+                <td className='coluna-tabela -min' onClick={handleClick}>▼</td>
             </tr>
-            <TabelaParcelas novaLinha={novaLinha} parcelas={numParcelas}key={key}/>
+            <TabelaParcelas novaLinha={novaLinha} parcelas={numParcelas}key={key} addClass={addClass}/>
             {/* <TabelaParc /> */}
         </>
     );

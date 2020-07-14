@@ -1,10 +1,11 @@
-.coluna-tabela.rowParcela.-disabled {
-    display: table-row;
-    /*display: none;*/
+.linha-tabela.rowParcela.-minimiza {
+    /*display: table-row;*/
+    display: none;
 }
 
-.coluna-tabela.rowParcela {
-    background-color: rgb(56, 139, 84);    
+.coluna-tabela.columnParcela {
+    background-color: rgb(56, 139, 84);   
+    /*display: table-row; */
 }
 
 

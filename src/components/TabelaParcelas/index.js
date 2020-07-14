@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import RowParcelas from '../../objects/RowParcelas';
 
-const TabelaParcelas = ({novaLinha, parcelas}) => {
+const TabelaParcelas = ({novaLinha, parcelas, addClass}) => {
 
     let i = 1;
     let linhaParcela = [];
@@ -19,6 +19,7 @@ const TabelaParcelas = ({novaLinha, parcelas}) => {
                 bandeira={novaLinha.Bandeira}
                 parcBruto={parcBruto(novaLinha.ValorBruto, parcelas)}
                 parcLiquido={parcLiquido(novaLinha.ValorLiquido, parcelas)}
+                addClass={addClass}
             />
 
         ])
