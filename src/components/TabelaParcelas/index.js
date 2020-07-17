@@ -17,8 +17,8 @@ const TabelaParcelas = ({novaLinha, parcelas, addClass}) => {
                 numParcelas={parcAtual(i, parcelas)}          
                 key={i}
                 bandeira={novaLinha.Bandeira}
-                parcBruto={parcBruto(novaLinha.ValorBruto, parcelas)}
-                parcLiquido={parcLiquido(novaLinha.ValorLiquido, parcelas)}
+                parcBruto={parcBrutoLiquido(novaLinha.ValorBruto, parcelas, i)}
+                parcLiquido={parcBrutoLiquido(novaLinha.ValorLiquido, parcelas, i)}
                 addClass={addClass}
             />
 
@@ -51,22 +51,43 @@ const parcAtual = (Atual, parcelas) => {
     return `${Atual}/${parcelas}`;
 }
 
-const parcBruto = (valorBrutoTotal, parc) => {
+const parcBrutoLiquido = (valorBrutoTotal, parc, i) => {
     const valor = valorBrutoTotal.replace(",", ".");
 
-    const valorParc = valor / parc;
-    const valorParcArredondado = valorParc.toFixed(2);
+    let valorParc = valor / parc;
+    valorParc = converteParaReal(valorParc)
 
-    return valorParcArredondado.replace('.', ',');
+    if(i === parseInt(parc)){
+        return ultimaParc(valorParc[1], parc, valorParc[0])[0];         
+    }
+    else{
+        return valorParc[0];        
+    }
 }
 
-const parcLiquido = (valorLiquidoTotal, parc) => {
-    const valor = valorLiquidoTotal.replace(",", ".");
+const ultimaParc = (resto, parc, valorParc) => {
+    const restoFormatado = parseFloat('0.00' + resto);
+    const parcFormatada =  parseFloat(valorParc.replace(",", "."));
+    const parcFinal = ((restoFormatado*parc) + parcFormatada).toString();
 
-    const valorParc = valor / parc;
-    const valorParcArredondado = valorParc.toFixed(2);
+    return converteParaReal(parcFinal)
+}
 
-    return valorParcArredondado.replace('.', ',');
+const converteParaReal = (valor) => {
+    const splitParc = valor.toString().split('.');
+    let resto
+    let fracao
+    if(splitParc[1]){
+        fracao = splitParc[1].substr(0,2)  
+        resto = splitParc[1].substr(2)
+    }
+    else {
+        fracao = '00'     
+    }
+
+    valor = splitParc[0] + ',' + fracao
+
+    return [valor, resto]
 }
 
 export default TabelaParcelas;
